@@ -54,3 +54,45 @@ ggplot(kelp, aes(x = temp_c, y = kelp_elong)) +
   # use cleaner theme
   theme_minimal()
 ```
+
+### c. Check assumptions and run your test
+
+#### Assumption checks
+
+```{r}
+# create linear model object
+kelp_lm <- lm(kelp_elong ~ temp_c, data = kelp)
+
+# plot diagnostic plots for assumptions
+par(mfrow = c(2, 2))
+plot(kelp_lm)
+
+# perform Shapiro-Wilk test for normality of residuals
+shapiro.test(residuals(kelp_lm))
+```
+
+The assumptions checked for the linear regression included linearity, normality of residuals, and homoscedasticity. I checked these assumptions using diagnostic plots from the linear model and a Shapiro-Wilk test on the residuals. Based on the diagnostic plots and test results, the assumptions appeared reasonably met for this dataset.
+
+#### Run the test
+
+```{r}
+# run simple linear regression
+summary(kelp_lm)
+
+# run Pearson correlation test
+cor.test(kelp$temp_c, kelp$kelp_elong)
+```
+
+### d. Results communication
+
+To evaluate the strength of the relationship between ocean temperature and giant kelp frond elongation rate, I used a simple linear regression. I selected this test because both variables were continuous numerical variables, and I wanted to determine how changes in temperature were associated with changes in kelp elongation rate.
+
+The results showed a significant negative relationship between ocean temperature and giant kelp frond elongation rate (F = 26.93, p < 0.001, R² = 0.473). As ocean temperature increased, kelp elongation rate tended to decrease. The Pearson correlation test also indicated a moderately strong negative correlation between the variables (r = -0.688, p < 0.001).
+
+### e. Test implications
+
+These results suggest that warmer ocean temperatures may negatively impact giant kelp growth rates. Since giant kelp forests are important marine ecosystems that provide habitat and food for many species, reduced growth under warmer conditions could have broader ecological consequences. This information could help researchers and conservation teams monitor vulnerable kelp forests and prioritize areas experiencing increasing ocean temperatures.
+
+### f. Double check your own work
+
+The Pearson correlation test and the simple linear regression led to the same overall conclusion about the null hypothesis. Both tests showed a significant negative relationship between ocean temperature and giant kelp frond elongation rate, with p-values less than 0.001. The Pearson correlation quantified the strength and direction of the linear relationship between the two variables, while the linear regression modeled how kelp elongation rate changed as temperature increased. Together, the tests supported the interpretation that higher temperatures were associated with lower kelp growth rates.
