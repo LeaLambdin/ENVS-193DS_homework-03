@@ -235,3 +235,25 @@ As I continue collecting data, I would improve consistency in how I record obser
 ### a. Describe your affective visualization
 
 My affective visualization will explore the relationship between sunlight exposure, reading, and daily energy levels using a layered mixed-media design. I want the piece to visually communicate how some days feel brighter, more productive, and mentally energized, while others feel slower or more drained. I plan to represent sunlight exposure using warm colors and larger visual elements, while lower-energy days will use darker or more muted tones. Rather than focusing only on statistical accuracy, the visualization will emphasize the emotional experience of balancing routines, motivation, and environmental conditions over time.
+
+### b. Sketch
+
+Below is a preliminary sketch outlining the visual structure and symbolism used in my affective visualization.
+
+![](Notes-4.jpg){width=80%}
+
+### c. Draft visualization
+
+Below is a draft version of my affective visualization using my personal sunlight, sleep, and reading data.
+
+![](Notes-5.jpg){width=80%}
+
+### d. Artist statement
+
+The content of my piece focuses on the relationship between sunlight exposure, sleep, and reading behavior over time. Each flower represents a single day, with different visual components encoding environmental and behavioral variables such as UV exposure, pages read, and sleep duration.
+
+I was influenced by affective visualization projects such as Dear Data and other hand-drawn visualizations that emphasize emotional experience and personal routine rather than strict statistical presentation. I also wanted the piece to feel organic and somewhat imperfect to reflect the variability of daily life.
+
+The form of my work is a hand-drawn mixed-media illustration using digital drawing tools and symbolic visual elements. I used flower imagery because it naturally connects to sunlight, growth, energy, and environmental conditions.
+
+My process involved first sketching a visual key to determine how each variable would be represented. I then translated daily observations into flower forms whose size, petal count, color, and surrounding symbols varied according to the collected data.
