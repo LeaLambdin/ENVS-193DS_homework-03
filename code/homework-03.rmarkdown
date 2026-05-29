@@ -283,3 +283,4 @@ The table has a fairly clean structure, but it is text-heavy and visually dense.
 ### d. Recommendations
 
 I would recommend adding a figure to visually represent the relationship between sunlight exposure and K10 mental health score. A useful figure could show sunlight exposure hours per day on the x-axis and K10 score on the y-axis, with points representing individual participants and a regression line showing the overall trend. This would make the negative association easier to interpret because readers could visually see whether higher sunlight exposure is associated with lower psychological distress. I would also recommend bolding or otherwise highlighting statistically significant p-values in the table so that the most important results are easier to identify.
+
