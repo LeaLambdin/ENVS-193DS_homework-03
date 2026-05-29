@@ -272,14 +272,4 @@ The paper I chose examined the relationship between sunlight exposure and mental
 
 ![](../data/Table2.png){width=80%}
 
-### b. Visual clarity
 
-Because the authors represented their statistical results in a table rather than a figure, the table clearly lists the predictor variables, regression coefficients, confidence intervals, and p-values. This makes it possible to identify which variables were statistically significant, including sunlight exposure hours per day. However, the table does not visually show the underlying data or make the relationship between sunlight exposure and mental health easy to interpret at a glance.
-
-### c. Aesthetic clarity
-
-The table has a fairly clean structure, but it is text-heavy and visually dense. There is little use of bolding, spacing, or visual emphasis to guide the reader toward the most important results. The data:ink ratio is acceptable because most of the table elements provide information, but the table could still be easier to read with clearer formatting.
-
-### d. Recommendations
-
-I would recommend adding a figure to visually represent the relationship between sunlight exposure and K10 mental health score. A useful figure could show sunlight exposure hours per day on the x-axis and K10 score on the y-axis, with points representing individual participants and a regression line showing the overall trend. This would make the negative association easier to interpret because readers could visually see whether higher sunlight exposure is associated with lower psychological distress. I would also recommend bolding or otherwise highlighting statistically significant p-values in the table so that the most important results are easier to identify.
