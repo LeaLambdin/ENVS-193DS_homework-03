@@ -1,26 +1,25 @@
 ---
 title: "Homework 3"
 author: "Lea Lambdin"
+date: 2026-05-28
 format: pdf
+toc: true
+execute:
+  warning: false
+  message: false
 ---
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
-
 ```{r}
-1 + 1
+# load packages
+library(tidyverse)
+library(here)
+library(janitor)
+
+# read in kelp data
+kelp <- read_csv(here("data", "temp-kelp.csv"))
 ```
 
-You can add options to executable code like this 
+## Problem 1
 
-```{r}
-#| echo: false
-2 * 2
-```
+### a. An appropriate test
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Two appropriate tests for evaluating the relationship between ocean temperature and giant kelp frond elongation rate are a Pearson correlation test and a simple linear regression. Both tests evaluate relationships between two continuous numerical variables, but they differ in purpose. A Pearson correlation measures the strength and direction of the linear relationship between temperature and kelp elongation rate, while a simple linear regression models how kelp elongation rate changes as temperature changes and allows prediction of the response variable from the predictor variable.
