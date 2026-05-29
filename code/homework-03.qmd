@@ -16,6 +16,8 @@ library(janitor)
 
 # read in kelp data
 kelp <- read_csv(here("data", "temp-kelp.csv"))
+# read in personal dataset
+my_data <- read_csv(here("data", "my_data.csv"))
 ```
 
 ## Problem 1
@@ -96,3 +98,134 @@ These results suggest that warmer ocean temperatures may negatively impact giant
 ### f. Double check your own work
 
 The Pearson correlation test and the simple linear regression led to the same overall conclusion about the null hypothesis. Both tests showed a significant negative relationship between ocean temperature and giant kelp frond elongation rate, with p-values less than 0.001. The Pearson correlation quantified the strength and direction of the linear relationship between the two variables, while the linear regression modeled how kelp elongation rate changed as temperature increased. Together, the tests supported the interpretation that higher temperatures were associated with lower kelp growth rates.
+
+## Problem 2
+
+```{r}
+# clean and prepare personal dataset
+
+my_data <- my_data %>%
+  
+  # clean column names
+  clean_names() %>%
+  
+  # convert sun exposure values to numeric
+  mutate(
+    sun_exposure_min = na_if(sun_exposure_min, "/"),
+    sun_exposure_min = as.numeric(sun_exposure_min)
+  ) %>%
+  
+  # create EPA UV categories
+  mutate(
+    uv_category = case_when(
+      uv_index >= 0 & uv_index <= 2 ~ "Low",
+      uv_index >= 3 & uv_index <= 5 ~ "Moderate",
+      uv_index >= 6 & uv_index <= 7 ~ "High",
+      uv_index >= 8 & uv_index <= 10 ~ "Very High",
+      uv_index > 10 ~ "Extreme",
+      TRUE ~ NA_character_
+    ),
+    
+    uv_category = factor(
+      uv_category,
+      levels = c("Low", "Moderate", "High", "Very High", "Extreme")
+    )
+  )
+```
+
+### a. Updated visualizations
+
+#### Visualization 1
+
+```{r}
+# create bar plot of average pages read across UV categories
+
+ggplot(
+  data = filter(my_data, !is.na(uv_category)),
+  aes(x = uv_category, y = pages_read, fill = uv_category)
+) +
+
+  # add bars representing group averages
+  stat_summary(
+    fun = mean,
+    geom = "col",
+    alpha = 0.8
+  ) +
+
+  # custom colors
+  scale_fill_manual(
+    values = c(
+      "Low" = "#8dd3c7",
+      "Moderate" = "#ffffb3",
+      "High" = "#bebada",
+      "Very High" = "#fb8072",
+      "Extreme" = "#80b1d3"
+    )
+  ) +
+
+  # labels and title
+  labs(
+    x = "UV Exposure Category",
+    y = "Pages Read (pages)",
+    title = "Average Pages Read Across UV Exposure Levels",
+    subtitle = "Updated through May 2026"
+  ) +
+
+  # cleaner theme
+  theme_classic() +
+
+  # remove legend
+  theme(legend.position = "none")
+```
+
+#### Visualization 2
+
+```{r}
+# create scatterplot of sun exposure and pages read
+
+ggplot(
+  my_data,
+  aes(x = sun_exposure_min, y = pages_read)
+) +
+
+  # add observations
+  geom_point(
+    color = "darkgreen",
+    size = 3,
+    alpha = 0.7
+  ) +
+
+  # add trend line
+  geom_smooth(
+    method = "lm",
+    se = FALSE,
+    color = "black"
+  ) +
+
+  # labels
+  labs(
+    x = "Sun Exposure (minutes/day)",
+    y = "Pages Read (pages)",
+    title = "Relationship Between Sun Exposure and Pages Read",
+    subtitle = "Updated through May 2026"
+  ) +
+
+  # apply non-default theme
+  theme_minimal()
+```
+
+### b. Captions
+
+Figure 1. Average pages read across EPA UV exposure categories using updated personal observations collected through May 2026. Bars represent the mean number of pages read within each UV exposure category.
+
+Figure 2. Scatterplot showing the relationship between daily sun exposure and pages read using updated personal observations collected through May 2026. The black line represents a linear trend line.
+
+### c. Interpretation
+
+The updated visualizations suggest a weak negative relationship between sun exposure and pages read. In the scatterplot, higher levels of sun exposure generally appear associated with fewer pages read, although the points remain fairly dispersed. The UV category plot also shows some variation in average pages read across exposure levels, but the differences are still relatively small. With additional observations collected over a longer period, stronger patterns may become more apparent.
+
+### d. Reflection
+
+I imported my updated personal dataset into R by saving the spreadsheet as a .csv file and reading it in with read_csv(). One challenge I encountered was making sure that all variables were stored in the correct format, especially numerical variables like sun exposure time. I addressed these issues by cleaning the dataset using janitor and converting blank or non-recorded observations into NA values where appropriate. Some observations were intentionally left blank on days when I did not spend time in the sun or did not exercise.
+
+As I continue collecting data, I would improve consistency in how I record observations and avoid leaving extra blank columns in the spreadsheet. This would help reduce cleaning time and make future analyses easier to perform.
