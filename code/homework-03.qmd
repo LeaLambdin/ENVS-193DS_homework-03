@@ -226,6 +226,12 @@ The updated visualizations suggest a weak negative relationship between sun expo
 
 ### d. Reflection
 
-I imported my updated personal dataset into R by saving the spreadsheet as a .csv file and reading it in with read_csv(). One challenge I encountered was making sure that all variables were stored in the correct format, especially numerical variables like sun exposure time. I addressed these issues by cleaning the dataset using janitor and converting blank or non-recorded observations into NA values where appropriate. Some observations were intentionally left blank on days when I did not spend time in the sun or did not exercise.
+I imported my updated personal dataset into R by saving the spreadsheet as a .csv file and reading it in with read_csv(). One challenge I encountered was making sure that all variables were stored in the correct format, especially numerical variables like sun exposure time. I addressed these issues by cleaning the dataset using janitor and converting blank or non-recorded observations into NA values where appropriate. Some observations were intentionally left blank on days when I did not spend time in the sun and/or did not exercise.
 
 As I continue collecting data, I would improve consistency in how I record observations and avoid leaving extra blank columns in the spreadsheet. This would help reduce cleaning time and make future analyses easier to perform.
+
+## Problem 3
+
+### a. Describe your affective visualization
+
+My affective visualization will explore the relationship between sunlight exposure, reading, and daily energy levels using a layered mixed-media design. I want the piece to visually communicate how some days feel brighter, more productive, and mentally energized, while others feel slower or more drained. I plan to represent sunlight exposure using warm colors and larger visual elements, while lower-energy days will use darker or more muted tones. Rather than focusing only on statistical accuracy, the visualization will emphasize the emotional experience of balancing routines, motivation, and environmental conditions over time.
